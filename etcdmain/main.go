@@ -24,13 +24,18 @@ import (
 	"go.uber.org/zap"
 )
 
+/**
+ * 启动一个etcd实例
+ */
 func Main() {
+	// 检查系统的架构是否可以满足要求
 	checkSupportArch()
 
+	// 如果启动时在命令后有跟随参数，那么...
 	if len(os.Args) > 1 {
-		cmd := os.Args[1]
-		if covArgs := os.Getenv("ETCDCOV_ARGS"); len(covArgs) > 0 {
-			args := strings.Split(os.Getenv("ETCDCOV_ARGS"), "\xe7\xcd")[1:]
+		cmd := os.Args[1]                                                               // 第一个参数是一个命令
+		if covArgs := os.Getenv("ETCDCOV_ARGS"); len(covArgs) > 0 {                // 如果有定义ETCDCOV_ARGS环境变量，那么
+			args := strings.Split(os.Getenv("ETCDCOV_ARGS"), "\xe7\xcd")[1:]  // 不懂\xe7这些是什么
 			rootCmd.SetArgs(args)
 			cmd = "grpc-proxy"
 		}
@@ -44,6 +49,7 @@ func Main() {
 		}
 	}
 
+	// 如果没有跟随参数，那么直接启动。
 	startEtcdOrProxyV2()
 }
 

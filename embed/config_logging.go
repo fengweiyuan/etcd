@@ -46,6 +46,9 @@ var grpcLogOnce = new(sync.Once)
 
 // setupLogging initializes etcd logging.
 // Must be called after flag parsing or finishing configuring embed.Config.
+/**
+ * 根据初始化配置，指定输出日志的一些格式、方式、渠道等。
+ */
 func (cfg *Config) setupLogging() error {
 	// handle "DeprecatedLogOutput" in v3.4
 	// TODO: remove "DeprecatedLogOutput" in v3.5

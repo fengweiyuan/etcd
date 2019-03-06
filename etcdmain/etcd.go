@@ -53,6 +53,9 @@ var (
 	dirEmpty  = dirType("empty")
 )
 
+/**
+ * 启动etcd实例或者启动proxyv2，proxyv2是什么？
+ */
 func startEtcdOrProxyV2() {
 	grpc.EnableTracing = false
 
@@ -601,6 +604,9 @@ func identifyDataDirOrDie(lg *zap.Logger, dir string) dirType {
 	return dirEmpty
 }
 
+/**
+ * 检查系统的架构是否可以满足要求
+ */
 func checkSupportArch() {
 	// TODO qualify arm64
 	if runtime.GOARCH == "amd64" || runtime.GOARCH == "ppc64le" {

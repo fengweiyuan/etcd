@@ -114,6 +114,9 @@ func init() {
 }
 
 // Config holds the arguments for configuring an etcd server.
+/**
+ * Etcd Server的运行时配置参数
+ */
 type Config struct {
 	Name   string `json:"name"`
 	Dir    string `json:"data-dir"`
@@ -550,6 +553,9 @@ func updateCipherSuites(tls *transport.TLSInfo, ss []string) error {
 }
 
 // Validate ensures that '*embed.Config' fields are properly configured.
+/**
+ * 检查“初始化配置”是否合法的方法
+ */
 func (cfg *Config) Validate() error {
 	if err := cfg.setupLogging(); err != nil {
 		return err

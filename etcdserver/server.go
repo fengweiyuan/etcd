@@ -707,6 +707,10 @@ func (s *EtcdServer) adjustTicks() {
 // begin serving requests. It must be called before Do or Process.
 // Start must be non-blocking; any long-running server functionality
 // should be implemented in goroutines.
+/**
+ * 翻译：初始化，以便开始服务请求，Start()在Do和Process前被调用。编码时注意，Start()不能被堵塞，执行较长的逻辑放至goroutines。
+ *
+ */
 func (s *EtcdServer) Start() {
 	s.start()
 	s.goAttach(func() { s.adjustTicks() })

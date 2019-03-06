@@ -93,6 +93,9 @@ type configFlags struct {
 	proxy        *flags.SelectiveStringValue
 }
 
+/**
+ * 该函数产生默认的配置，返回config结构体指针。
+ */
 func newConfig() *config {
 	cfg := &config{
 		ec: *embed.NewConfig(),
